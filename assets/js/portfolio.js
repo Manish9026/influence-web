@@ -769,7 +769,7 @@ const privateUpdateTabCard = (selected = "all") => {
 
 
       } else {
-        notFound.style.display = "flex";
+        // notFound.style.display = "flex";
       }
     });
 
