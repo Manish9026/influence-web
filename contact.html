@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact AnikeVPF for professional visual production services">
+  <title>Contact Us | PariMedia</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/icon.png">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Additional CSS for Contact Page -->
+  <style>
+    .social-link:hover {
+      background: var(--gradient);
+    color: white;
+    transform: translateY(-3px);
+
+    i{
+      color: #ffffff;
+    }
+    }
+    .social-link:hover
+
+    .nav-contact-btn {
+      text-decoration: none;
+    }
+
+    .contact-section {
+      /* padding: 6rem 2rem 7rem; */
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.08));
+      position: relative;
+      overflow: hidden;
+      padding-top: 120px;
+    }
+    
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+      top: 50px;
+      right: -100px;
+      filter: blur(70px);
+      z-index: 0;
+    }
+    
+    .contact-section::after {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+      bottom: 50px;
+      left: -100px;
+      filter: blur(70px);
+      z-index: 0;
+    }
+    
+    .section-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 900px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      
+      .contact-info {
+        order: 2;
+      }
+      
+      .contact-form-container {
+        order: 1;
+      }
+    }
+    
+    .info-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .info-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      position: relative;
+    }
+    
+    .info-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+    
+    .info-description {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 0;
+    }
+    
+    .contact-info-item i {
+      width: 24px;
+      height: 24px;
+      margin-right: 1rem;
+      color: var(--primary);
+    }
+    
+    .contact-item-link {
+      font-size: 1.05rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.3s ease;
+    }
+    
+    .contact-item-link:hover {
+      color: var(--primary);
+    }
+    
+    .contact-item-text {
+      font-size: 1.05rem;
+    }
+    
+    .service-list {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+    
+    @media (max-width: 500px) {
+      .service-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .service-item {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+    
+    .service-item:before {
+      content: '✓';
+      color: var(--primary);
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+    
+    .contact-form {
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--gradient);
+    }
+    
+    @media (max-width: 768px) {
+      .contact-form {
+        padding: 2rem;
+      }
+    }
+    
+    .form-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 10px;
+      background: rgba(248, 250, 252, 0.9);
+      color: var(--text);
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+    
+    .form-control.has-error {
+      border-color: red;
+    }
+    
+    .form-control.has-error:focus {
+      box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .error-message {
+      color: red;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    
+    .form-status-message {
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .form-status-message.success {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+    
+    .form-status-message.error {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+    }
+    
+    .btn-submit {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    }
+    
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      filter: brightness(1.05);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width:580px) {
+
+      .contact-form-container{
+        padding: 1rem;
+        .contact-form{
+          padding: .9rem 1.5rem;
+        }
+      }
+      .info-card{
+        padding: 1rem;
+      }
+      .btn-submit{
+        padding: 1rem;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container center">
+      <a class="navbar-brand " href="index.html"><span class="h4" style="color: #ffffff;">Pari</span><span class="h4" style="color: #ffffff;"> Media</span></a>
+      <button class="navbar-toggler h5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="workflow.html">Workflow</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <a href="contact.html" class="nav-contact-btn">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner p-2 p-sm-4">
+      <h2 class="section-title ">Get In Touch</h2>
+      <p class="section-description">
+        Ready to start your video project? Contact us to discuss your needs and bring your vision to life.
+      </p>
+      
+      <div class="contact-container">
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+            <h3 style="color:var( --text);" class="form-title">Request a Quote</h3>
+            
+            <!-- Success message -->
+            <div class="success-message">
+              <i class="fas fa-check-circle"></i>
+              <h4>Thank You!</h4>
+              <p>Your message has been sent successfully. We'll get back to you soon.</p>
+            </div>
+            
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" name="name" class="form-control">
+              <div id="nameError" class="error-message"></div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control">
+                <div id="emailError" class="error-message"></div>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" class="form-control">
+                <div id="phoneError" class="error-message"></div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="projectType" class="form-label">Service Type</label>
+              <select id="projectType" name="projectType" class="form-control">
+                <option value="">Select Service Type</option>
+                <option value="shortVideo">Short Video Editing</option>
+                <option value="longVideo">Long Video Editing</option>
+                <option value="commercial">Commercial Video</option>
+                <option value="talkingHead">Talking Head Video</option>
+                <option value="voiceover">Voiceover Video</option>
+                <option value="event">Event Video</option>
+                <option value="podcast">Podcast Editing</option>
+                <option value="greenScreen">Green Screen Editing</option>
+                <option value="gaming">Gaming Video</option>
+                <option value="thumbnailDesign">Thumbnail Design</option>
+                <option value="scriptWriting">Script Writing</option>
+                <option value="custom">Custom Project</option>
+              </select>
+              <div id="projectTypeError" class="error-message"></div>
+            </div>
+            
+            <div class="form-group">
+              <label for="details" class="form-label">Project Details</label>
+              <textarea id="details" name="details" class="form-control" placeholder="Please describe your project requirements, video length, content type, style preferences, timeline, budget, and any special requests." rows="5"></textarea>
+              <div id="detailsError" class="error-message"></div>
+            </div>
+            
+            <button type="submit" id="submitButton" class="btn-submit">
+              <span id="submitText">Send Message</span>
+              <span id="submitSpinner" class="spinner d-none"></span>
+            </button>
+            
+            <!-- Hidden fields for storing data in Excel -->
+            <input type="hidden" name="_sheet" value="https://sheet.best/api/sheets/YOUR_SHEET_ID">
+          </form>
+        </div>
+        
+        <div class="contact-info">
+          <div class="info-card">
+            <h3 style="color:var( --text);" class="info-title">Let's collaborate</h3>
+            <p class="info-description">
+              We provide professional video editing and creative services to help you tell your story with impact. Reach out to us to discuss your project requirements.
+            </p>
+            
+            <div class="contact-info-item">
+              <i class="fas fa-envelope"></i>
+              <a href="info@parimedia.co.in " class="contact-item-link">info@parimedia.co.in </a>
+            </div>
+          
+            
+            <div class="contact-info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="contact-item-text">New Delhi, India</span>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <h3 style="color:var( --text);" class="info-title">Our Services</h3>
+            <div class="service-list">
+              <div class="service-item">Short Video Editing</div>
+              <div class="service-item">Long Video Editing</div>
+              <div class="service-item">Commercial Videos</div>
+              <div class="service-item">Talking Head Videos</div>
+              <div class="service-item">Voiceover Videos</div>
+              <div class="service-item">Event Videos</div>
+              <div class="service-item">Podcast Editing</div>
+              <div class="service-item">Green Screen Editing</div>
+              <div class="service-item">Gaming Videos</div>
+              <div class="service-item">Thumbnail Design</div>
+              <div class="service-item">Script Writing</div>
+              <div class="service-item">Custom Projects</div>
+            </div>
+            
+            <div class="social-links mt-4">
+              <a href="https://www.instagram.com/officialparijain/#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.youtube.com/@official.parijain" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+        
+              <a href="https://www.linkedin.com/in/pari-jain-" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+<footer class="footer py-5" style="background-color: #121212; color: white;">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Column - Brand -->
+      <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+        <h4 style="color: white; font-size: 1.5rem; font-weight: 600;">Pari Media</h4>
+      </div>
+
+      <!-- Center Column - Support -->
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">Need Support?</h4>
+        <a href="mailto:info@parimedia.co.in" style="color: white; text-decoration: none;">info@parimedia.co.in</a>
+      </div>
+
+      <!-- Right Column - Social -->
+      <div class="col-md-4 text-center text-md-end">
+        <div style="text-align: center;">
+          <h5 class="mb-3" style="color: white; margin-bottom: 1rem;">Follow Us</h5>
+          <div class="footer-social" style="display: flex; justify-content: center; gap: 1rem; align-items: center;">
+            <a href="https://www.instagram.com/officialparijain" class="social-icon instagram" style="font-size: 1.5rem; color: #fff;" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@official.parijain" class="social-icon youtube" style="font-size: 1.5rem; color: #fff;" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/pari-jain-" class="social-icon linkedin" style="font-size: 1.5rem; color: #fff;" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <p class="copyright" style="opacity: 0.7; font-size: 0.9rem;">© 2025 Pari Media. All rights reserved. || Designed by Aniket Jha</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Script to connect form data to Google Sheets (replace with your actual endpoint) -->
+  <script>
+    // This script will be activated when you set up your sheet.best account
+    // and replace the YOUR_SHEET_ID in the hidden field with your actual ID
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      // Check if form validation passed (handled by main.js)
+      if (this.querySelectorAll('.has-error').length === 0) {
+        // Get the API endpoint from the hidden field
+        const sheetURL = this.querySelector('input[name="_sheet"]').value;
+        
+        if (sheetURL && sheetURL !== 'https://sheet.best/api/sheets/YOUR_SHEET_ID') {
+          e.preventDefault(); // Prevent default form submission
+          
+          // Collect form data
+          const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            serviceType: document.getElementById('projectType').value,
+            details: document.getElementById('details').value,
+            timestamp: new Date().toISOString()
+          };
+          
+          // Send data to Google Sheets via sheet.best API
+          fetch(sheetURL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          })
+            .then(response => {
+              if (response.ok) {
+                return response.json();
+              }
+              throw new Error('Network response was not ok');
+            })
+            .then(data => {
+              console.log('Success:', data);
+              // Form submission already handled by main.js
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+              // Create error message if API call fails
+              const formStatus = document.createElement('div');
+              formStatus.className = 'form-status-message error';
+              formStatus.textContent = 'There was an error saving your data. Please try again later.';
+              
+              const existingStatus = document.querySelector('.form-status-message');
+              if (existingStatus) {
+                existingStatus.remove();
+              }
+              
+              document.getElementById('contactForm').insertBefore(formStatus, document.getElementById('contactForm').firstChild);
+            });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

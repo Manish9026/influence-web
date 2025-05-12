@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio and pricing for Pari Media's visual production services">
+  <title>Our Services & Pricing | Pari Media</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/icon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<style>
+  .portfolio-hero {
+    background-color: #000000 !important;
+    padding: 8rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    z-index: 1;
+  }
+
+  .portfolio-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/images/pattern.svg') center/cover;
+    opacity: 0.05;
+    z-index: -1;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+  }
+
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .portfolio-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    background: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+
+  .portfolio-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    padding: 10px;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .portfolio-info {
+    padding: 1.5rem;
+  }
+
+  .portfolio-info h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .portfolio-info p {
+    color: var(--text-light);
+    margin: 0;
+  }
+
+  .btn-close {
+    background-image: none;
+    color: rgba(26, 160, 160, 0.91);
+    opacity: 1;
+    font-size: large;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 2s;
+    border: 1px solid gray;
+
+  }
+
+  .btn-close:hover {
+    background: #27589d;
+    color: aliceblue;
+
+  }
+
+  /* Footer social icons styling */
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .footer-social .social-icon {
+    background-color: var(--orange-accent);
+  }
+
+  .arrow{
+    display: none;
+  }
+
+  @keyframes mover {
+    0%{
+      left: 50%;
+      scale: 1.1;
+      color: #27589d;
+
+    }
+
+    100%{
+      left: 0;
+      scale: 1;
+    }
+    
+  }
+ 
+  @media (max-width: 576px) {
+
+    .arrow{
+      display: flex;
+        position: absolute;
+        top: -30px;
+        right:20px;
+        border: 1px solid white;
+        text-align: center;
+        border-radius: 10px;
+        height: 40px;
+        width: 40px;
+        overflow: hidden;
+
+        i{
+          position: relative;
+          animation: 1s ease infinite alternate mover;
+        }
+      }
+    .portfolio-filters {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 2rem 0rem;
+
+      .filter-btn {
+        padding: .8rem;
+        border-radius: 15px;
+        min-width: 120px;
+      }
+
+      
+    }
+
+    .portfolio-filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .portfolio-filters {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .portfolio-card {
+      padding: 1rem;
+
+      .portfolio-info {
+        padding: 1rem 0rem;
+      }
+    }
+
+    .container {
+      padding: .5rem;
+    }
+  }
+
+  .video-outer {
+    /* width: 400px; */
+    /* height: 400px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .video-short {
+    /* aspect-ratio: ;
+     */
+     /* padding-top: 177.77% ; */
+    width: 300px;
+    height: 400px;
+    background: #000;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+  }
+  
+  .video-short video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+</style>
+
+<body>
+  <!-- Header/Navbar -->
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container center">
+      <a class="navbar-brand " href="index.html"><span class="h4" style="color: #ffffff;">Pari</span><span class="h4"
+          style="color: #ffffff;"> Media</span></a>
+      <button class="navbar-toggler h5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="workflow.html">Workflow</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <a href="contact.html" class="nav-contact-btn">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section portfolio-hero" style="background:#000000">
+    <div class="container text-center">
+      <h1 style="color: #ffffff; font-size: 3.5rem; font-weight: 700;">Our Portfolio</h1>
+      <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; margin-top: 1rem;">Professional services tailored to
+        your needs with transparent pricing</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section py-5 px-2 ">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center position-relative">
+          <span class="arrow center">
+
+            <i class="fa-solid fa-arrow-right "></i>
+          </span>
+          <div class="portfolio-filters">
+            
+            <button class="filter-btn active" data-filter="all">All Services</button>
+            <button class="filter-btn" data-filter="short_video">Short Video</button>
+            <button class="filter-btn" data-filter="long_video">Long Video</button>
+            <button class="filter-btn" data-filter="graphics_video">Graphics</button>
+            <button class="filter-btn" data-filter="script_video">Scripting</button>
+            
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- card list container  -->
+      <div class="row portfolio-grid" id="cardList">
+        <!-- Short Video Editing -->
+
+        <!-- <div class="col-lg-4 col-md-6 mb-4 portfolio-item short-video">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb video-container">
+                            <video preload="metadata"  style="width: 100%; height: auto;  "  src="./assets/videos/test.mp4"></video>
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <a href="#portfolioModal1" data-bs-toggle="modal"
+                                    id="popup"
+                                     class="overlay-icon"
+                                     
+                                   data-tab-id="0"
+                                    ><i class="fas fa-expand"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>Commercials</h4>
+                            <p>₹3,000 - ₹5,000</p>
+                        </div>
+                    </div>
+                </div> -->
+
+        <!-- Graphics Design -->
+
+
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <a href="contact.html" class="btn btn-lg"
+            style="background-color: #FF4F00; color: #fff; transition: all 0.3s ease;">Specific Requirement</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Modal 1 -->
+  <div class="modal fade portfolio-modal" id="portfolioModal1" tabindex="-1" aria-hidden="true" style="z-index:20000;">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="title">Corporate Brand Video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            style="background-image:none; color:#fff;"><i class="fa-solid fa-xmark"></i></button>
+
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-8 mb-4 mb-lg-0 d-flex justify-content-center">
+              <div class="project-showcase video-container" id="video-box">
+                <!-- <iframe width="100%" height="450" title="YouTube video player"
+                                id="prd-videoUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                              
+                                ></iframe> -->
+                <video id="prd-videoUrl" src="" style="aspect-ratio: 1;" autoplay="true"></video>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="project-details">
+                <h4>Project Details</h4>
+                <ul class="project-info">
+                  <li><strong>Client:</strong>
+                    <p style="display: inline;" id="prd-title">sd</p>.
+                  </li>
+                  <li><strong>Category:</strong>
+                    <p style="display: inline;" id="prd-category"></p>
+                  </li>
+                  <li><strong>Completed:</strong>
+                    <p style="display: inline;" id="prd-completed">sd</p>
+                  </li>
+                  <li><strong>Duration:</strong>
+                    <p style="display: inline; margin-left: 10px;" id="prd-duration">2:45 minutes</p>
+                  </li>
+                </ul>
+                <div class="project-description">
+                  <h5>About the Project</h5>
+                  <p id="prd-dis"></p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer class="footer py-5" style="background-color: #121212; color: white;">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left Column - Brand -->
+        <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+          <h4 style="color: white; font-size: 1.5rem; font-weight: 600;">Pari Media</h4>
+        </div>
+
+        <!-- Center Column - Support -->
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+          <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">Need Support?</h4>
+          <a href="mailto:info@parimedia.co.in" style="color: white; text-decoration: none;">info@parimedia.co.in</a>
+        </div>
+
+        <!-- Right Column - Social -->
+        <div class="col-md-4 text-center text-md-end">
+          <div style="text-align: center;">
+            <h5 class="mb-3" style="color: white; margin-bottom: 1rem;">Follow Us</h5>
+            <div class="footer-social" style="display: flex; justify-content: center; gap: 1rem; align-items: center;">
+              <a href="https://www.instagram.com/officialparijain" class="social-icon instagram"
+                style="font-size: 1.5rem; color: #fff;" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://youtube.com/@official.parijain" class="social-icon youtube"
+                style="font-size: 1.5rem; color: #fff;" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.linkedin.com/in/pari-jain-" class="social-icon linkedin"
+                style="font-size: 1.5rem; color: #fff;" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <p class="copyright" style="opacity: 0.7; font-size: 0.9rem;">© 2025 Pari Media. All rights reserved. ||
+            Designed by Aniket Jha</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="assets/js/portfolio.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+
+</body>
+
+</html>
