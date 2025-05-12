@@ -29,6 +29,7 @@
     color: #ffffff;
     z-index: 1;
   }
+ 
 
   .portfolio-hero::before {
     content: '';
@@ -255,7 +256,30 @@
     object-fit: contain;
   }
 
-
+ .breadCum{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    
+    button{
+      transition: all ease 2s ;
+      background-color: transparent;
+      border: none ;
+      color: white;
+      will-change:contents;
+      text-transform: capitalize;
+      &:hover{
+        scale: .8;
+     border-bottom: #dde4e7 2px solid;
+     
+      }
+    }
+    
+  }
+  .breadCum :last-child{
+    border-bottom: #40b9e4 2px solid;
+  }
 </style>
 
 <body>
@@ -315,11 +339,11 @@
           </span>
           <div class="portfolio-filters">
             
-            <button class="filter-btn active" data-filter="all">All Services</button>
+            <!-- <button class="filter-btn active" data-filter="all">All Services</button>
             <button class="filter-btn" data-filter="short_video">Short Video</button>
             <button class="filter-btn" data-filter="long_video">Long Video</button>
             <button class="filter-btn" data-filter="graphics_video">Graphics</button>
-            <button class="filter-btn" data-filter="script_video">Scripting</button>
+            <button class="filter-btn" data-filter="script_video">Scripting</button> -->
             
 
 
@@ -328,6 +352,7 @@
       </div>
 
       <!-- card list container  -->
+       <!-- <div class="text-capitalize breadCum"><button>parent</button><i class="fa-solid fa-arrow-right"></i> <button>child</button></div> -->
       <div class="row portfolio-grid" id="cardList">
         <!-- Short Video Editing -->
 

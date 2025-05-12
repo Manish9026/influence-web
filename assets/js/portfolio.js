@@ -8,6 +8,49 @@ const video1 = "assets/videos/test.mp4"
 const video2 = "assets/videos/song.mp4"
 const parentCategory = ["short_video", "long_video", "graphics", "script",'all']
 
+const publicTab=[{
+  id:"all",
+  name:"All Services"
+},{
+  id:'short_video',
+  name:"Short Video"
+},
+{
+  id:'long_video',
+  name:"Long Video"
+},
+{
+  id:'graphics_video',
+  name:"Graphics"
+},
+{
+  id:'script_video',
+  name:"scripting"
+},
+
+]
+const privateTab=[
+  {
+  id:'short_video',
+  name:"Short Video"
+},
+{
+  id:'long_video',
+  name:"Long Video"
+},
+{
+  id:'graphics_video',
+  name:"Graphics"
+},
+{
+  id:'script_video',
+  name:"scripting"
+},
+{
+  id:"all",
+  name:"All Services"
+}
+]
 const videoCategory={
   long:{
     greenScreen:"green_screen",
@@ -193,8 +236,10 @@ function onPopup(e) {
 
 
 
+
 document.addEventListener('DOMContentLoaded', function () {
-  initPortfolioFilters();
+
+  initPortfolioFilters(getParam('activeTab') || 'all');
   // updateTabCard()
   document.getElementById('portfolioModal1').addEventListener('hidden.bs.modal', function () {
     const video = document.getElementById('prd-videoUrl');
@@ -209,31 +254,24 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
 * Portfolio Filtering functionality
 */
-function initPortfolioFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  // const portfolioItems = document.querySelectorAll('.portfolio-item');
-  let initSelectItem = undefined;
-  // const cardContainer = document.getElementById("cardList");
+function initPortfolioFilters(initial="all") {
 
-  if (!filterBtns.length) return;
-
-
-  filterBtns.forEach(item => {
-    if (item.classList.contains("active")) {
-
-      if (!initSelectItem) {
-        initSelectItem = item;
-
-      }
-    }
-
+  const tabContainer=document.getElementsByClassName('portfolio-filters')[0];
+  publicTab.map((item,index)=>{
+ 
+    const button=document.createElement('button');
+    button.className=`filter-btn ${(initial==item.id) && 'active'} `
+    button.setAttribute('data-filter',item?.id)
+    button.innerText=item.name
+    tabContainer.appendChild(button)
+    
+    
 
   })
+  updateTabCard(initial)
 
 
-  updateTabCard(initSelectItem.getAttribute('data-filter'))
-
-
+  const filterBtns = document.querySelectorAll('.filter-btn');
 
 
   // Handle filter button clicks
@@ -245,6 +283,7 @@ function initPortfolioFilters() {
 
       // Add active class to clicked button
       const filterValue = btn.getAttribute('data-filter');
+      updateUrl([{key:"activeTab",value:filterValue}])
       btn.classList.add('active');
       updateTabCard(filterValue)
 
@@ -273,9 +312,12 @@ function initPortfolioFilters() {
 }
 
 const parentCard=(cardData,cardContainer,parentCard)=>{
+  // cardContainer.appendChild()
+
   cardData.forEach((card, index) => {
       const cardDiv = document.createElement("div");
       cardDiv.className = "col-lg-4 col-md-6 mb-4 portfolio-item " + card?.category;
+      
       cardDiv.innerHTML = `
        <div class="portfolio-card">
                           <div class="portfolio-thumb video-container">
@@ -295,7 +337,7 @@ const parentCard=(cardData,cardContainer,parentCard)=>{
                                   </div>-->
                               </div> 
                           </div>
-                          <div class="portfolio-info">
+                          <div class="portfolio-info  text-capitalize">
                               <h4>${card?.title}</h4>
                            <button  id="exploreBtn" data-parent="${parentCard || card?.category }" data-filter="${card?.category}">Explore more</button>
                           </div>
@@ -309,6 +351,7 @@ const parentCard=(cardData,cardContainer,parentCard)=>{
         cardDiv.style.transform = 'translatex(0px)';
 
       }, 30)
+     
       cardContainer.appendChild(cardDiv);
 
       // const links = document.querySelectorAll('#popup');
@@ -334,7 +377,7 @@ const parentCard=(cardData,cardContainer,parentCard)=>{
         // console.log(e.target?.dataset?.filter);
 
         console.log(selectValue,"selectedValue");
-        
+         updateUrl([{key:"activeTab",value:parent || selectValue}])
         if (!selectValue) return
         filterBtns.forEach(btn => {
           // console.log(btn.getAttribute('data-filter')===selectValue);
@@ -387,7 +430,11 @@ const updateTabCard = (selected = "all",parent) => {
 
       if (card.category === parent) {
         card.content.find((i,subParentIndex)=>{
-          if(i.category===selected)
+          if(i.category===selected){
+              const nevDiv = document.createElement("div");
+  nevDiv.innerHTML=`<div class="text-capitalize breadCum"><button>${parent}</button><i class="fa-solid fa-arrow-right"></i> <button>${selected}</button></div>`
+   cardContainer.appendChild(nevDiv);
+
            return  i.content.map((item, contentIndex) => {
 
           const cardDiv = document.createElement("div");
@@ -415,8 +462,8 @@ const updateTabCard = (selected = "all",parent) => {
                                   </div>
                               </div>
                              </div>
-                              <div class="portfolio-info">
-                                  <h4>${item?.title}</h4>
+                              <div class="portfolio-info text-capitalize">
+                                  <h4 class=" text-capitalize">${item?.title}</h4>
                                 <p>₹ ${(item?.priceRange?.min ? item?.priceRange?.min : 0) + (item?.priceRange?.max && " - ₹" + item?.priceRange?.max)}</p>
                               </div>
                           </div>
@@ -437,7 +484,7 @@ const updateTabCard = (selected = "all",parent) => {
           links.forEach(link => {
             link.addEventListener('click', onPopup);
           });
-        })
+        })}
 
 
 
@@ -477,11 +524,25 @@ const  decryptData=(encrypted) =>{
       }
     }
 
-const getParam=(key)=>{
- const params = new URLSearchParams(window.location.search);
- if(params)
-  return decryptData(params.get(key)) 
+const updateUrl=(paramValue=[])=>{
+  const url = new URL(window.location.href);
 
+// Add or update a param
+paramValue.map((i)=>{
+  url.searchParams.set(i?.key, i?.value);
+})
+
+// Update the browser URL (optional)
+window.history.replaceState({}, '', url);
+}    
+
+const getParam=(key,type="normal")=>{
+ const params = new URLSearchParams(window.location.search);
+ if(params && type=="secure")
+  return decryptData(params.get(key)) 
+ if(params && type=="normal"){
+  return params.get(key)
+}
  return null
 } 
 
