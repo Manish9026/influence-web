@@ -581,9 +581,10 @@ const updateTabCard = (selected = "all", parent) => {
 
 
 
+        notFound.style.display = "none";
 
       } else {
-        notFound.style.display = "flex";
+        // notFound.style.display = "flex";
       }
 
 
