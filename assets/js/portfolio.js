@@ -1,197 +1,197 @@
 
 
 // important data
-const allowedTokens = ['abc123', 'xyz789']; 
+const allowedTokens = ['abc123', 'xyz789'];
 const secretKey = '8374whshhdsdhh63ehheh6yeyeyh';
 // card data
 const video1 = "assets/videos/test.mp4"
 const video2 = "assets/videos/song.mp4"
-const parentCategory = ["short_video", "long_video", "graphics", "script",'all']
+const parentCategory = ["short_video", "long_video", "graphics", "script", 'all']
 
 
 
 // public Data
-const publicTab=[{
-  id:"all",
-  name:"All Services"
-},{
-  id:'short_video',
-  name:"Short Video"
+const publicTab = [{
+  id: "all",
+  name: "All Services"
+}, {
+  id: 'short_video',
+  name: "Short Video"
 },
 {
-  id:'long_video',
-  name:"Long Video"
+  id: 'long_video',
+  name: "Long Video"
 },
 {
-  id:'graphics_video',
-  name:"Graphics"
+  id: 'graphics_video',
+  name: "Graphics"
 },
 {
-  id:'script_video',
-  name:"scripting"
+  id: 'script_video',
+  name: "scripting"
 },
 
 ]
-const videoCategory={
-  long:{
-    greenScreen:"green_screen",
-    gaming:"gaming",
-    commercial:"commercial",
+const videoCategory = {
+  long: {
+    greenScreen: "green_screen",
+    gaming: "gaming",
+    commercial: "commercial",
   },
-  sort:{
-    greenScreen:"green_screen",
-    gaming:"gaming",
-    commercial:"commercial",
+  sort: {
+    greenScreen: "green_screen",
+    gaming: "gaming",
+    commercial: "commercial",
   }
 }
 const newCardData = [
   // sort video
   {
-  title: "Short Video",
-  url: "assets/images/short.jpg",
-  mimeType: "image",
-  category: "short_video",
-  content: [
-    
-    {
-  title: "gaming Video",
-  url: "assets/images/short.jpg",
-  mimeType: "image",
-  category:videoCategory?.sort?.gaming,
-  content:[ {
-      title: "gaming Video 1",
-      category: "gaming Video",
-      priceRange: { min: 1500, max: 3000 },
-      discountPrice: 0,
-      completedAt: new Date(),
-      url: "assets/Portfolio/Short videos/Event Video/1.mp4",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
-      videoType: "short-video",
-      duration: '2:5 minutes',
-      mimeType: "video"
-    },]
-    },
+    title: "Short Video",
+    url: "assets/images/short.jpg",
+    mimeType: "image",
+    category: "short_video",
+    content: [
 
-    {
-  title: "commertial Video",
-  url: "assets/images/short.jpg",
-  mimeType: "image",
-  category: videoCategory?.sort.commercial,
-  content:[ {
-      title: "commercial Video",
-      category: "commercial Video",
-      priceRange: { min: 1500, max: 3000 },
-      discountPrice: 0,
-      completedAt: new Date(),
-      url: "assets/Portfolio/Short videos/Event Video/1.mp4",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
-      videoType: "short-video",
-      duration: '2:5 minutes',
-      mimeType: "video"
-    },]
-    },
+      {
+        title: "gaming Video",
+        url: "assets/images/short.jpg",
+        mimeType: "image",
+        category: videoCategory?.sort?.gaming,
+        content: [{
+          title: "gaming Video 1",
+          category: "gaming Video",
+          priceRange: { min: 1500, max: 3000 },
+          discountPrice: 0,
+          completedAt: new Date(),
+          url: "assets/Portfolio/Short videos/Event Video/1.mp4",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
+          videoType: "short-video",
+          duration: '2:5 minutes',
+          mimeType: "video"
+        },]
+      },
 
-
-  ]
-},
-// long
-{
-  title: "long Video",
-  url: "assets/images/short.jpg",
-  mimeType: "image",
-  category: "long_video",
-  content: [
-    
-    {
-  title: "long gaming Video",
-  url: "assets/images/short.jpg",
-  mimeType: "image",
-  category:videoCategory?.long?.gaming,
-  content:[ {
-      title: "long gaming Video 1",
-      category: "gaming Video",
-      priceRange: { min: 1500, max: 3000 },
-      discountPrice: 0,
-      completedAt: new Date(),
-      url: "assets/Portfolio/Short videos/Event Video/1.mp4",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
-      videoType: "short-video",
-      duration: '2:5 minutes',
-      mimeType: "video"
-    },]
-    },
-
-    {
-  title: "long commertial Video",
-  url: "assets/images/short.jpg",
-  mimeType: "image",
-  category: videoCategory?.long.commercial,
-  content:[ {
-      title: "long commercial Video 1",
-      category: "commercial Video",
-      priceRange: { min: 1500, max: 3000 },
-      discountPrice: 0,
-      completedAt: new Date(),
-      url: "assets/Portfolio/Short videos/Event Video/1.mp4",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
-      videoType: "short-video",
-      duration: '2:5 minutes',
-      mimeType: "video"
-    },]
-    },
+      {
+        title: "commertial Video",
+        url: "assets/images/short.jpg",
+        mimeType: "image",
+        category: videoCategory?.sort.commercial,
+        content: [{
+          title: "commercial Video",
+          category: "commercial Video",
+          priceRange: { min: 1500, max: 3000 },
+          discountPrice: 0,
+          completedAt: new Date(),
+          url: "assets/Portfolio/Short videos/Event Video/1.mp4",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
+          videoType: "short-video",
+          duration: '2:5 minutes',
+          mimeType: "video"
+        },]
+      },
 
 
-  ]
-},
+    ]
+  },
+  // long
+  {
+    title: "long Video",
+    url: "assets/images/short.jpg",
+    mimeType: "image",
+    category: "long_video",
+    content: [
+
+      {
+        title: "long gaming Video",
+        url: "assets/images/short.jpg",
+        mimeType: "image",
+        category: videoCategory?.long?.gaming,
+        content: [{
+          title: "long gaming Video 1",
+          category: "gaming Video",
+          priceRange: { min: 1500, max: 3000 },
+          discountPrice: 0,
+          completedAt: new Date(),
+          url: "assets/Portfolio/Short videos/Event Video/1.mp4",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
+          videoType: "short-video",
+          duration: '2:5 minutes',
+          mimeType: "video"
+        },]
+      },
+
+      {
+        title: "long commertial Video",
+        url: "assets/images/short.jpg",
+        mimeType: "image",
+        category: videoCategory?.long.commercial,
+        content: [{
+          title: "long commercial Video 1",
+          category: "commercial Video",
+          priceRange: { min: 1500, max: 3000 },
+          discountPrice: 0,
+          completedAt: new Date(),
+          url: "assets/Portfolio/Short videos/Event Video/1.mp4",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
+          videoType: "short-video",
+          duration: '2:5 minutes',
+          mimeType: "video"
+        },]
+      },
 
 
-// {
-//   title: "Script Video",
-//   url: "assets/images/script.jpg",
-//   mimeType: "image",
-//   category: "script_video",
-//   content: [
-//     {
-//       mimeType: "video",
-//       title: "Script Video Title",
-//       category: "",
-//       priceRange: { min: 1500, max: 3000 },
-//       discountPrice: 0,
-//       completedAt: new Date(),
-//       url: video1,
-//       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
-//       videoType: "short-video",
-//       duration: '2:5 minutes'
-//     },
-//   ]
-// },
-// {
-//   title: "Graphics Video",
-//   url: "assets/images/design.jpg",
-//   mimeType: "image",
-//   category: "graphics_video",
-//   content: [
-//     {
-//       mimeType: "video",
-//       title: "Graphics Video Title",
-//       category: "",
-//       priceRange: { min: 1500, max: 3000 },
-//       discountPrice: 0,
-//       completedAt: new Date(),
-//       url: video1,
-//       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
-//       videoType: "short-video",
-//       duration: '2:5 minutes'
-//     },
-//   ]
-// }
+    ]
+  },
+
+
+  // {
+  //   title: "Script Video",
+  //   url: "assets/images/script.jpg",
+  //   mimeType: "image",
+  //   category: "script_video",
+  //   content: [
+  //     {
+  //       mimeType: "video",
+  //       title: "Script Video Title",
+  //       category: "",
+  //       priceRange: { min: 1500, max: 3000 },
+  //       discountPrice: 0,
+  //       completedAt: new Date(),
+  //       url: video1,
+  //       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
+  //       videoType: "short-video",
+  //       duration: '2:5 minutes'
+  //     },
+  //   ]
+  // },
+  // {
+  //   title: "Graphics Video",
+  //   url: "assets/images/design.jpg",
+  //   mimeType: "image",
+  //   category: "graphics_video",
+  //   content: [
+  //     {
+  //       mimeType: "video",
+  //       title: "Graphics Video Title",
+  //       category: "",
+  //       priceRange: { min: 1500, max: 3000 },
+  //       discountPrice: 0,
+  //       completedAt: new Date(),
+  //       url: video1,
+  //       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rem quaerat cumque porro nulla, id culpa maxime, quo animi repellendus at. Obcaecati odit deserunt dolorem!",
+  //       videoType: "short-video",
+  //       duration: '2:5 minutes'
+  //     },
+  //   ]
+  // }
 ]
 
 // private Data
 const privateTab = [
   {
-    id:"all",
-    name:"All Services"
+    id: "all",
+    name: "All Services"
   },
   {
     id: "education",
@@ -221,7 +221,7 @@ const privateTab = [
     id: "commercial",
     name: "Commercials"
   },
-  
+
 
 ];
 // [
@@ -375,39 +375,39 @@ const privateCardData = [
 // public functions
 function onPopup(e) {
 
-  let { contentId, containerId,subContainerId } = e.target.closest('#popup').dataset;
-  // console.log(containerId,contentId,);
+  let { contentId, containerId, subContainerId } = e.target.closest('#popup').dataset;
 
 
 
-  const {content,category:cardCategory}=newCardData[containerId];
-  const {content:subContent}=content[subContainerId]
-  const {title,category,completedAt,duration,url,description}=subContent[contentId];
 
-  const videoContain=document.getElementById('video-box');
-  if(cardCategory=="short_video"){
+  const { content, category: cardCategory } = newCardData[containerId];
+  const { content: subContent } = content[subContainerId]
+  const { title, category, completedAt, duration, url, description } = subContent[contentId];
+
+  const videoContain = document.getElementById('video-box');
+  if (cardCategory == "short_video") {
     videoContain?.classList?.remove("video-container");
     videoContain?.classList?.add("video-short")
-  }else{
+  } else {
     videoContain?.classList?.add("video-container");
     videoContain?.classList?.remove("video-short")
   }
-  document.getElementById('prd-title').innerText =title;
+  document.getElementById('prd-title').innerText = title;
   document.getElementById('prd-category').innerText = category;
-  document.getElementById('prd-completed').innerText =completedAt?.toLocaleString('default', { month: 'long' }) + " " +completedAt?.getFullYear();
+  document.getElementById('prd-completed').innerText = completedAt?.toLocaleString('default', { month: 'long' }) + " " + completedAt?.getFullYear();
   document.getElementById('prd-duration').innerText = duration;
   document.getElementById('prd-videoUrl').src = url
   document.getElementById('prd-dis').innerText = description;
 
 }
-const parentCard=(cardData,cardContainer,parentCard)=>{
+const parentCard = (cardData, cardContainer, parentCard) => {
   // cardContainer.appendChild()
 
   cardData.forEach((card, index) => {
-      const cardDiv = document.createElement("div");
-      cardDiv.className = "col-lg-4 col-md-6 mb-4 portfolio-item " + card?.category;
-      
-      cardDiv.innerHTML = `
+    const cardDiv = document.createElement("div");
+    cardDiv.className = "col-lg-4 col-md-6 mb-4 portfolio-item " + card?.category;
+
+    cardDiv.innerHTML = `
        <div class="portfolio-card">
                           <div class="portfolio-thumb video-container">
                          ${card?.mimeType == "video" ? `<video preload="metadata"  style="width: 100%; height: auto;"  src="./${card?.url}"></video>` : `<img   style="width: 100%; height: auto; position:absolute; top:0; left:0; object-fit:cover; " src="${card?.url}">`}
@@ -428,73 +428,73 @@ const parentCard=(cardData,cardContainer,parentCard)=>{
                           </div>
                           <div class="portfolio-info  text-capitalize">
                               <h4>${card?.title}</h4>
-                           <button  id="exploreBtn" data-parent="${parentCard || card?.category }" data-filter="${card?.category}">Explore more</button>
+                           <button  id="exploreBtn" data-parent="${parentCard || card?.category}" data-filter="${card?.category}">Explore more</button>
                           </div>
                       </div>
       `;
-      cardDiv.style.opacity = 0
-      cardDiv.style.transform = 'translatey(10px)';
+    cardDiv.style.opacity = 0
+    cardDiv.style.transform = 'translatey(10px)';
 
-      setTimeout(() => {
-        cardDiv.style.opacity = 1
-        cardDiv.style.transform = 'translatex(0px)';
+    setTimeout(() => {
+      cardDiv.style.opacity = 1
+      cardDiv.style.transform = 'translatex(0px)';
 
-      }, 30)
-     
-      cardContainer.appendChild(cardDiv);
+    }, 30)
 
-      // const links = document.querySelectorAll('#popup');
+    cardContainer.appendChild(cardDiv);
+
+    // const links = document.querySelectorAll('#popup');
 
 
-      // links.forEach(link => {
-      //   link.addEventListener('click', onPopup);
-      // });
+    // links.forEach(link => {
+    //   link.addEventListener('click', onPopup);
+    // });
 
-    }
+  }
 
-    );
+  );
 
-    const exploreBtn = document.querySelectorAll("#exploreBtn");
+  const exploreBtn = document.querySelectorAll("#exploreBtn");
 
-    exploreBtn.forEach(btn => {
+  exploreBtn.forEach(btn => {
 
-      btn.addEventListener('click', (e) => {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        let selectValue = e?.target?.dataset?.filter
-        let parent = e?.target?.dataset?.parent;
-
-        // console.log(e.target?.dataset?.filter);
-
-        console.log(selectValue,"selectedValue");
-         updateUrl([{key:"activeTab",value:parent || selectValue}])
-        if (!selectValue) return
-        filterBtns.forEach(btn => {
-          // console.log(btn.getAttribute('data-filter')===selectValue);
-
-          if (btn.getAttribute('data-filter') === parent) {
-            btn.classList.add('active')
-          }
-          else {
-
-            btn.classList.remove('active')
-          }
+    btn.addEventListener('click', (e) => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      let selectValue = e?.target?.dataset?.filter
+      let parent = e?.target?.dataset?.parent;
 
 
 
-        });
-        // console.log(filterBtns);
+      updateUrl([{ key: "activeTab", value: parent || selectValue }])
+      if (!selectValue) return
+      filterBtns.forEach(btn => {
 
-        updateTabCard(selectValue,parent)
+        if (btn.getAttribute('data-filter') === parent) {
+          btn.classList.add('active')
+        }
+        else {
 
-      })
+          btn.classList.remove('active')
+        }
+
+
+
+      });
+
+      updateTabCard(selectValue, parent)
+
     })
+  })
 
 
 
 }
 
-const updateTabCard = (selected = "all",parent) => {
+const updateTabCard = (selected = "all", parent) => {
   const cardContainer = document.getElementById("cardList");
+  const notFound = document.getElementById('not-found');
+  notFound.style.display = "none";
+
   window.scrollTo({
     top: 200,
     behavior: 'smooth'
@@ -503,34 +503,34 @@ const updateTabCard = (selected = "all",parent) => {
     // makes it smooth scrolling
   });
   cardContainer.innerHTML = "";
-  console.log(selected,"selectfromupdateTab card");
 
-if (parentCategory?.includes(selected)) {
-    if(selected=="all")
-   return parentCard(newCardData,cardContainer,)
-  else{
-    let cardData=newCardData.find(i=>(i.category==selected))
-   return parentCard(cardData.content,cardContainer,cardData?.category)
-  }
+
+  if (parentCategory?.includes(selected)) {
+    if (selected == "all")
+      return parentCard(newCardData, cardContainer,)
+    else {
+      let cardData = newCardData.find(i => (i.category == selected))
+      return parentCard(cardData.content, cardContainer, cardData?.category)
+    }
   }
   else {
     newCardData.forEach((card, parentIndex) => {
 
       if (card.category === parent) {
-        card.content.find((i,subParentIndex)=>{
-          if(i.category===selected){
-              const nevDiv = document.createElement("div");
-  nevDiv.innerHTML=`<div class="text-capitalize breadCum"><button>${parent}</button><i class="fa-solid fa-arrow-right"></i> <button>${selected}</button></div>`
-   cardContainer.appendChild(nevDiv);
+        card.content.find((i, subParentIndex) => {
+          if (i.category === selected) {
+            const nevDiv = document.createElement("div");
+            nevDiv.innerHTML = `<div class="text-capitalize breadCum"><button>${parent}</button><i class="fa-solid fa-arrow-right"></i> <button>${selected}</button></div>`
+            cardContainer.appendChild(nevDiv);
 
-           return  i.content.map((item, contentIndex) => {
+            return i.content.map((item, contentIndex) => {
 
-          const cardDiv = document.createElement("div");
-          cardDiv.className = "col-lg-4 col-md-6 mb-4 portfolio-item " + card?.category;
-          cardDiv.innerHTML = `
+              const cardDiv = document.createElement("div");
+              cardDiv.className = "col-lg-4 col-md-6 mb-4 portfolio-item " + card?.category;
+              cardDiv.innerHTML = `
            <div class="portfolio-card">
                              <div class="video-outer">
-                              <div class="portfolio-thumb ${card?.category=="short_video"?'video-short':"video-container"}">
+                              <div class="portfolio-thumb ${card?.category == "short_video" ? 'video-short' : "video-container"}">
                              ${item?.mimeType == "video" ? `<video preload="metadata"  style="width: 100%; "  src="./${item?.url}"></video>` : `<img preload="metadata"  style="width: 100%; "  src="./${item?.url}">`}
       
                
@@ -556,32 +556,36 @@ if (parentCategory?.includes(selected)) {
                               </div>
                           </div>
           `;
-          cardDiv.style.opacity = 0
-          cardDiv.style.transform = 'translatey(10px)';
+              cardDiv.style.opacity = 0
+              cardDiv.style.transform = 'translatey(10px)';
 
-          setTimeout(() => {
-            cardDiv.style.opacity = 1
-            cardDiv.style.transform = 'translatex(0px)';
+              setTimeout(() => {
+                cardDiv.style.opacity = 1
+                cardDiv.style.transform = 'translatex(0px)';
 
-          }, 30)
-          cardContainer.appendChild(cardDiv);
+              }, 30)
+              cardContainer.appendChild(cardDiv);
 
 
-          const links = document.querySelectorAll('#popup');
+              const links = document.querySelectorAll('#popup');
 
-          links.forEach(link => {
-            link.addEventListener('click', onPopup);
-          });
-        })}
+              links.forEach(link => {
+                link.addEventListener('click', onPopup);
+              });
+            })
+          }
 
 
 
         })
-        
 
 
 
+
+      } else {
+        notFound.style.display = "flex";
       }
+
 
     });
 
@@ -594,22 +598,22 @@ if (parentCategory?.includes(selected)) {
 function onPrivatePopup(e) {
 
   let { contentId, containerId } = e.target.closest('#popup').dataset;
-  // console.log(containerId,contentId,);
 
-  const {content,category:cardCategory}=privateCardData[containerId];
-  const {title,category,completedAt,duration,url,description}=content[contentId];
 
-  const videoContain=document.getElementById('video-box');
-  if(cardCategory=="short_video"){
+  const { content, category: cardCategory } = privateCardData[containerId];
+  const { title, category, completedAt, duration, url, description } = content[contentId];
+
+  const videoContain = document.getElementById('video-box');
+  if (cardCategory == "short_video") {
     videoContain?.classList?.remove("video-container");
     videoContain?.classList?.add("video-short")
-  }else{
+  } else {
     videoContain?.classList?.add("video-container");
     videoContain?.classList?.remove("video-short")
   }
-  document.getElementById('prd-title').innerText =title;
+  document.getElementById('prd-title').innerText = title;
   document.getElementById('prd-category').innerText = category;
-  document.getElementById('prd-completed').innerText =completedAt?.toLocaleString('default', { month: 'long' }) + " " +completedAt?.getFullYear();
+  document.getElementById('prd-completed').innerText = completedAt?.toLocaleString('default', { month: 'long' }) + " " + completedAt?.getFullYear();
   document.getElementById('prd-duration').innerText = duration;
   document.getElementById('prd-videoUrl').src = url
   document.getElementById('prd-dis').innerText = description;
@@ -618,6 +622,7 @@ function onPrivatePopup(e) {
 
 const privateUpdateTabCard = (selected = "all") => {
   const cardContainer = document.getElementById("cardList");
+  const notFound = document.getElementById('not-found');
   window.scrollTo({
     top: 200,
     behavior: 'smooth'
@@ -683,10 +688,10 @@ const privateUpdateTabCard = (selected = "all") => {
       btn.addEventListener('click', (e) => {
         const filterBtns = document.querySelectorAll('.filter-btn');
         let selectValue = e?.target?.dataset?.filter
-        // console.log(e.target?.dataset?.filter);
+
         if (!selectValue) return
         filterBtns.forEach(btn => {
-          // console.log(btn.getAttribute('data-filter')===selectValue);
+
 
           if (btn.getAttribute('data-filter') === selectValue) {
             btn.classList.add('active')
@@ -699,9 +704,9 @@ const privateUpdateTabCard = (selected = "all") => {
 
 
         });
-        console.log(selectValue);
 
-        updateUrl([{key:"activeTab",value:selectValue}])
+
+        updateUrl([{ key: "activeTab", value: selectValue }])
         privateUpdateTabCard(selectValue)
 
       })
@@ -718,7 +723,7 @@ const privateUpdateTabCard = (selected = "all") => {
           cardDiv.innerHTML = `
            <div class="portfolio-card">
                              <div class="video-outer">
-                              <div class="portfolio-thumb ${card?.category=="short_video"?'video-short':"video-container"}">
+                              <div class="portfolio-thumb ${card?.category == "short_video" ? 'video-short' : "video-container"}">
                              ${item?.mimeType == "video" ? `<video preload="metadata"  style="width: 100%; "  src="${item?.url}"></video>` : `<img preload="metadata"  style="width: 100%; "  src="${item?.url}">`}
       
                
@@ -762,6 +767,8 @@ const privateUpdateTabCard = (selected = "all") => {
         })
 
 
+      } else {
+        notFound.style.display = "flex";
       }
     });
 
@@ -771,56 +778,56 @@ const privateUpdateTabCard = (selected = "all") => {
 }
 
 // Shared functions 
-const encryptData=(data)=>{
-try {
-  if(data)
-    return CryptoJS.AES.encrypt(data,secretKey).toString();
-  return null
-} catch (error) {
-  return null
+const encryptData = (data) => {
+  try {
+    if (data)
+      return CryptoJS.AES.encrypt(data, secretKey).toString();
+    return null
+  } catch (error) {
+    return null
+  }
 }
+const decryptData = (encrypted) => {
+  try {
+    const bytes = CryptoJS.AES.decrypt(encrypted, secretKey);
+    const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+    return decrypted;
+  } catch (e) {
+    return null;
+  }
 }
-const  decryptData=(encrypted) =>{
-      try {
-        const bytes = CryptoJS.AES.decrypt(encrypted, secretKey);
-        const decrypted = bytes.toString(CryptoJS.enc.Utf8);
-        return decrypted;
-      } catch (e) {
-        return null;
-      }
-    }
-const isPrivate=()=>{
-   const token=getParam("token",'secure');
+const isPrivate = () => {
+  const token = getParam("token", 'secure');
 
-   console.log(token,"token");
-   
-   if(allowedTokens?.includes(token))
+
+
+  if (allowedTokens?.includes(token))
     return true
   else
     return false
-}    
+}
 
-const updateUrl=(paramValue=[])=>{
+const updateUrl = (paramValue = []) => {
   const url = new URL(window.location.href);
 
-// Add or update a param
-paramValue.map((i)=>{
-  url.searchParams.set(i?.key, i?.value);
-})
+  // Add or update a param
+  paramValue.map((i) => {
+    url.searchParams.set(i?.key, i?.value);
+  })
 
-// Update the browser URL (optional)
-window.history.replaceState({}, '', url);
-}    
-
-const getParam=(key,type="normal")=>{
- const params = new URLSearchParams(window.location.search);
- if(params && type=="secure")
-  return decryptData(params.get(key)) 
- if(params && type=="normal"){
-  return params.get(key)
+  // Update the browser URL (optional)
+  window.history.replaceState({}, '', url);
 }
- return null
-} 
+
+const getParam = (key, type = "normal") => {
+  const params = new URLSearchParams(window.location.search);
+  if (params && type == "secure")
+    return decryptData(params.get(key))
+  if (params && type == "normal") {
+    return params.get(key)
+  }
+  return null
+}
 
 // end Shared function block
 
@@ -831,9 +838,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  // console.log(isPrivate(),"private");
-  
-  initPortfolioFilters(getParam('activeTab') || 'all',isPrivate());
+
+  initPortfolioFilters(getParam('activeTab') || 'all', isPrivate());
   // updateTabCard()
   document.getElementById('portfolioModal1').addEventListener('hidden.bs.modal', function () {
     const video = document.getElementById('prd-videoUrl');
@@ -846,24 +852,24 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 /** Shared Portfolio Filtering functionality share */
-function initPortfolioFilters(initial="all",privateStatus) {
+function initPortfolioFilters(initial = "all", privateStatus) {
 
-  const tabContainer=document.getElementsByClassName('portfolio-filters')[0];
-  const tabDetail=privateStatus?privateTab:publicTab;
-  tabDetail.map((item,index)=>{
- 
-    const button=document.createElement('button');
-    button.className=`filter-btn ${(initial==item.id) && 'active'} `
-    button.setAttribute('data-filter',item?.id)
-    button.innerText=item.name
+  const tabContainer = document.getElementsByClassName('portfolio-filters')[0];
+  const tabDetail = privateStatus ? privateTab : publicTab;
+  tabDetail.map((item, index) => {
+
+    const button = document.createElement('button');
+    button.className = `filter-btn ${(initial == item.id) && 'active'} `
+    button.setAttribute('data-filter', item?.id)
+    button.innerText = item.name
     tabContainer.appendChild(button)
-    
-    
+
+
 
   })
 
-  privateStatus?
- privateUpdateTabCard(initial): updateTabCard(initial)
+  privateStatus ?
+    privateUpdateTabCard(initial) : updateTabCard(initial)
 
 
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -874,14 +880,13 @@ function initPortfolioFilters(initial="all",privateStatus) {
     btn.addEventListener('click', () => {
       // Remove active class from all buttons
       filterBtns.forEach(btn => btn.classList.remove('active'));
-      console.log(btn);
 
       // Add active class to clicked button
       const filterValue = btn.getAttribute('data-filter');
-      updateUrl([{key:"activeTab",value:filterValue}])
+      updateUrl([{ key: "activeTab", value: filterValue }])
       btn.classList.add('active');
-      privateStatus?privateUpdateTabCard(filterValue):
-      updateTabCard(filterValue)
+      privateStatus ? privateUpdateTabCard(filterValue) :
+        updateTabCard(filterValue)
 
 
     });
@@ -891,7 +896,6 @@ function initPortfolioFilters(initial="all",privateStatus) {
   if (window.location.hash) {
     const hash = window.location.hash.substring(1); // Remove the # character
     const targetBtn = document.querySelector(`.filter-btn[data-filter="${hash}"]`);
-    console.log(hash, targetBtn);
 
     if (targetBtn) {
       targetBtn.click();
@@ -910,6 +914,6 @@ function initPortfolioFilters(initial="all",privateStatus) {
 
 
 
-    
+
 
 

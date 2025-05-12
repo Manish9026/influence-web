@@ -280,6 +280,31 @@
   .breadCum :last-child{
     border-bottom: #40b9e4 2px solid;
   }
+
+    .notfound {
+      /* max-width: 500px; */
+      padding: 20px;
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      justify-content:center ;
+      flex: 1;
+      margin: auto;
+      
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #7767ca;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+
 </style>
 
 <body>
@@ -337,15 +362,9 @@
 
             <i class="fa-solid fa-arrow-right "></i>
           </span>
+          <!-- filter tabs -->
           <div class="portfolio-filters">
-            
-            <!-- <button class="filter-btn active" data-filter="all">All Services</button>
-            <button class="filter-btn" data-filter="short_video">Short Video</button>
-            <button class="filter-btn" data-filter="long_video">Long Video</button>
-            <button class="filter-btn" data-filter="graphics_video">Graphics</button>
-            <button class="filter-btn" data-filter="script_video">Scripting</button> -->
-            
-
+       
 
           </div>
         </div>
@@ -353,6 +372,13 @@
 
       <!-- card list container  -->
        <!-- <div class="text-capitalize breadCum"><button>parent</button><i class="fa-solid fa-arrow-right"></i> <button>child</button></div> -->
+
+        <div id="not-found" class="notfound">
+    <h2>Resource Not Found</h2>
+    <p>The item you’re looking for could not be located or is no longer available.</p>
+    <!-- <a href="/">Return to Home</a> -->
+  </div>
+
       <div class="row portfolio-grid" id="cardList">
         <!-- Short Video Editing -->
 
