@@ -8,6 +8,9 @@ const video1 = "assets/videos/test.mp4"
 const video2 = "assets/videos/song.mp4"
 const parentCategory = ["short_video", "long_video", "graphics", "script",'all']
 
+
+
+// public Data
 const publicTab=[{
   id:"all",
   name:"All Services"
@@ -29,43 +32,6 @@ const publicTab=[{
 },
 
 ]
-const privateTab = [
-  {
-    id:"all",
-    name:"All Services"
-  },
-  {
-    id: "education",
-    name: "Education"
-  },
-  {
-    id: "fitness",
-    name: "Fitness"
-  },
-  {
-    id: "finance",
-    name: "Finance & Investing"
-  },
-  {
-    id: "branding",
-    name: "Personal Branding"
-  },
-  {
-    id: "travel",
-    name: "Travel"
-  },
-  {
-    id: "documentary",
-    name: "Documentary"
-  },
-  {
-    id: "commercial",
-    name: "Commercials"
-  },
-  
-
-];
-
 const videoCategory={
   long:{
     greenScreen:"green_screen",
@@ -220,6 +186,44 @@ const newCardData = [
 //   ]
 // }
 ]
+
+// private Data
+const privateTab = [
+  {
+    id:"all",
+    name:"All Services"
+  },
+  {
+    id: "education",
+    name: "Education"
+  },
+  {
+    id: "fitness",
+    name: "Fitness"
+  },
+  {
+    id: "finance",
+    name: "Finance & Investing"
+  },
+  {
+    id: "branding",
+    name: "Personal Branding"
+  },
+  {
+    id: "travel",
+    name: "Travel"
+  },
+  {
+    id: "documentary",
+    name: "Documentary"
+  },
+  {
+    id: "commercial",
+    name: "Commercials"
+  },
+  
+
+];
 // [
 //   "all",
 //   "education",
@@ -368,11 +372,13 @@ const privateCardData = [
 ];
 
 
-
+// public functions
 function onPopup(e) {
 
   let { contentId, containerId,subContainerId } = e.target.closest('#popup').dataset;
   // console.log(containerId,contentId,);
+
+
 
   const {content,category:cardCategory}=newCardData[containerId];
   const {content:subContent}=content[subContainerId]
@@ -394,93 +400,6 @@ function onPopup(e) {
   document.getElementById('prd-dis').innerText = description;
 
 }
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-
-
-
-  // console.log(isPrivate(),"private");
-  
-  initPortfolioFilters(getParam('activeTab') || 'all',isPrivate());
-  // updateTabCard()
-  document.getElementById('portfolioModal1').addEventListener('hidden.bs.modal', function () {
-    const video = document.getElementById('prd-videoUrl');
-    video.pause();
-    video.src = '';
-    video.load();
-  });
-
-  // document.getElementById('fi').addEventListener("click")
-})
-
-/**
-* Portfolio Filtering functionality
-*/
-function initPortfolioFilters(initial="all",privateStatus) {
-
-  const tabContainer=document.getElementsByClassName('portfolio-filters')[0];
-  const tabDetail=privateStatus?privateTab:publicTab;
-  tabDetail.map((item,index)=>{
- 
-    const button=document.createElement('button');
-    button.className=`filter-btn ${(initial==item.id) && 'active'} `
-    button.setAttribute('data-filter',item?.id)
-    button.innerText=item.name
-    tabContainer.appendChild(button)
-    
-    
-
-  })
-
-  privateStatus?
- privateUpdateTabCard(initial): updateTabCard(initial)
-
-
-  const filterBtns = document.querySelectorAll('.filter-btn');
-
-
-  // Handle filter button clicks
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active class from all buttons
-      filterBtns.forEach(btn => btn.classList.remove('active'));
-      console.log(btn);
-
-      // Add active class to clicked button
-      const filterValue = btn.getAttribute('data-filter');
-      updateUrl([{key:"activeTab",value:filterValue}])
-      btn.classList.add('active');
-      privateStatus?privateUpdateTabCard(filterValue):
-      updateTabCard(filterValue)
-
-
-    });
-  });
-
-  // Check for hash in URL for direct filtering
-  if (window.location.hash) {
-    const hash = window.location.hash.substring(1); // Remove the # character
-    const targetBtn = document.querySelector(`.filter-btn[data-filter="${hash}"]`);
-    console.log(hash, targetBtn);
-
-    if (targetBtn) {
-      targetBtn.click();
-
-      // Scroll to the portfolio section
-      const portfolioSection = document.querySelector('.portfolio-section');
-      if (portfolioSection) {
-        setTimeout(() => {
-          portfolioSection.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
-  }
-}
-
 const parentCard=(cardData,cardContainer,parentCard)=>{
   // cardContainer.appendChild()
 
@@ -671,37 +590,31 @@ if (parentCategory?.includes(selected)) {
 
 }
 
- // known only to admin and this page
+// private functions
+function onPrivatePopup(e) {
 
-// encryption and decryption of param Data
-const encryptData=(data)=>{
-try {
-  if(data)
-    return CryptoJS.AES.encrypt(data,secretKey).toString();
-  return null
-} catch (error) {
-  return null
-}
-}
-const  decryptData=(encrypted) =>{
-      try {
-        const bytes = CryptoJS.AES.decrypt(encrypted, secretKey);
-        const decrypted = bytes.toString(CryptoJS.enc.Utf8);
-        return decrypted;
-      } catch (e) {
-        return null;
-      }
-    }
-const isPrivate=()=>{
-   const token=getParam("token",'secure');
+  let { contentId, containerId } = e.target.closest('#popup').dataset;
+  // console.log(containerId,contentId,);
 
-   console.log(token,"token");
-   
-   if(allowedTokens?.includes(token))
-    return true
-  else
-    return false
-}    
+  const {content,category:cardCategory}=privateCardData[containerId];
+  const {title,category,completedAt,duration,url,description}=content[contentId];
+
+  const videoContain=document.getElementById('video-box');
+  if(cardCategory=="short_video"){
+    videoContain?.classList?.remove("video-container");
+    videoContain?.classList?.add("video-short")
+  }else{
+    videoContain?.classList?.add("video-container");
+    videoContain?.classList?.remove("video-short")
+  }
+  document.getElementById('prd-title').innerText =title;
+  document.getElementById('prd-category').innerText = category;
+  document.getElementById('prd-completed').innerText =completedAt?.toLocaleString('default', { month: 'long' }) + " " +completedAt?.getFullYear();
+  document.getElementById('prd-duration').innerText = duration;
+  document.getElementById('prd-videoUrl').src = url
+  document.getElementById('prd-dis').innerText = description;
+
+}
 
 const privateUpdateTabCard = (selected = "all") => {
   const cardContainer = document.getElementById("cardList");
@@ -844,7 +757,7 @@ const privateUpdateTabCard = (selected = "all") => {
           const links = document.querySelectorAll('#popup');
 
           links.forEach(link => {
-            link.addEventListener('click', onPopup);
+            link.addEventListener('click', onPrivatePopup);
           });
         })
 
@@ -856,6 +769,36 @@ const privateUpdateTabCard = (selected = "all") => {
   // cardContainer.style.opacity=1;
   // cardContainer.style.transform="translatey(0px)"
 }
+
+// Shared functions 
+const encryptData=(data)=>{
+try {
+  if(data)
+    return CryptoJS.AES.encrypt(data,secretKey).toString();
+  return null
+} catch (error) {
+  return null
+}
+}
+const  decryptData=(encrypted) =>{
+      try {
+        const bytes = CryptoJS.AES.decrypt(encrypted, secretKey);
+        const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+        return decrypted;
+      } catch (e) {
+        return null;
+      }
+    }
+const isPrivate=()=>{
+   const token=getParam("token",'secure');
+
+   console.log(token,"token");
+   
+   if(allowedTokens?.includes(token))
+    return true
+  else
+    return false
+}    
 
 const updateUrl=(paramValue=[])=>{
   const url = new URL(window.location.href);
@@ -879,13 +822,94 @@ const getParam=(key,type="normal")=>{
  return null
 } 
 
-const encrypted = encryptData("abc123");
-console.log(encrypted,"encrypted");
-
-console.log(`http://127.0.0.1:5501/portfolio.html?token=${encodeURIComponent(encrypted)}`);
+// end Shared function block
 
 
-    console.log(decryptData(encrypted),"decrypt");
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+
+  // console.log(isPrivate(),"private");
+  
+  initPortfolioFilters(getParam('activeTab') || 'all',isPrivate());
+  // updateTabCard()
+  document.getElementById('portfolioModal1').addEventListener('hidden.bs.modal', function () {
+    const video = document.getElementById('prd-videoUrl');
+    video.pause();
+    video.src = '';
+    video.load();
+  });
+
+  // document.getElementById('fi').addEventListener("click")
+})
+
+/** Shared Portfolio Filtering functionality share */
+function initPortfolioFilters(initial="all",privateStatus) {
+
+  const tabContainer=document.getElementsByClassName('portfolio-filters')[0];
+  const tabDetail=privateStatus?privateTab:publicTab;
+  tabDetail.map((item,index)=>{
+ 
+    const button=document.createElement('button');
+    button.className=`filter-btn ${(initial==item.id) && 'active'} `
+    button.setAttribute('data-filter',item?.id)
+    button.innerText=item.name
+    tabContainer.appendChild(button)
+    
+    
+
+  })
+
+  privateStatus?
+ privateUpdateTabCard(initial): updateTabCard(initial)
+
+
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+
+  // Handle filter button clicks
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(btn => btn.classList.remove('active'));
+      console.log(btn);
+
+      // Add active class to clicked button
+      const filterValue = btn.getAttribute('data-filter');
+      updateUrl([{key:"activeTab",value:filterValue}])
+      btn.classList.add('active');
+      privateStatus?privateUpdateTabCard(filterValue):
+      updateTabCard(filterValue)
+
+
+    });
+  });
+
+  // Check for hash in URL for direct filtering
+  if (window.location.hash) {
+    const hash = window.location.hash.substring(1); // Remove the # character
+    const targetBtn = document.querySelector(`.filter-btn[data-filter="${hash}"]`);
+    console.log(hash, targetBtn);
+
+    if (targetBtn) {
+      targetBtn.click();
+
+      // Scroll to the portfolio section
+      const portfolioSection = document.querySelector('.portfolio-section');
+      if (portfolioSection) {
+        setTimeout(() => {
+          portfolioSection.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }
+}
+
+
+
+
     
 
 
